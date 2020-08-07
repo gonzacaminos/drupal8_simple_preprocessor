@@ -1,1 +1,2 @@
-# drupal-8-simple-preprocessor
+# Dead simple preprocessor starter module
+## For Drupal 8
