@@ -1,0 +1,6 @@
+name: Preprocessor starter module
+description: A module to get you going on preprocessing fields
+type: module
+package: Custom 
+version: 1.0 
+core: 8.x

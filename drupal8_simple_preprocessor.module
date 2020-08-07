@@ -1,0 +1,25 @@
+<?php
+
+/*
+* The hook function needs to start with your module name (drupal8_simple_preprocessor here)
+* Followed by _preprocess
+* And the name of the attribute
+* This sample function gets and image with name @field_i on a paragraph with name @banner
+* And its transforms it into a background image
+* More information: https://www.drupal.org/docs/8/theming-drupal-8/modifying-attributes-in-a-theme-file
+*/
+
+function drupal8_simple_preprocessor_preprocess_paragraph__banner(&$variables) {
+  // This will modify the rendering of the paragraph with name @banner
+  // Make sure to get the machine names right
+  $paragraph = $variables['paragraph'];
+  if (!$paragraph->field_i->isEmpty()) {
+    // Gets the image url and transforms it into a background image
+    $image = $paragraph->field_i->entity->url();
+    $variables['attributes']['style'][] = 'background-image: url("' . $image . '");';
+    $variables['attributes']['style'][] = 'background-size: cover;';
+    $variables['attributes']['style'][] = 'background-position: center center;';
+  }
+}
+
+?>
